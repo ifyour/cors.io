@@ -9,33 +9,28 @@ hr { width: 20%; }
 </head>
 <body><center><br><br>
 
-<big><b>The Problem:</b></big><br>
-No 'Access-Control-Allow-Origin' header is present on the requested resource.
-<br>Origin 'http://internet.derp' is therefore not allowed access.<br><br>
+<big><b>使用场景：</b></big><br>
+受限于浏览器的同源策略，服务端未设置 'Access-Control-Allow-Origin' 头，将不允许跨域请求。
 
-<big><b>The Solution:</b></big><br>
-A CORS proxy!<br><br>
+<big><b>解决方案：</b></big><br>
+使用跨域代理（CORS Proxy）<br><br>
 
 
 $.getJSON('https://httpbin.org/get?cors=a_problem',function(){})<br><br>
 
-becomes ..<br><br>
+替换为：<br><br>
 
-$.getJSON('<b>http://cors.io/?</b>https://httpbin.org/get?cors=a_problem',function(){})<br><br>
+$.getJSON('<b>https://i-cors.herokuapp.com/?</b>https://httpbin.org/get?cors=a_problem',function(){})<br><br>
 
 <hr>
 
 $.post('https://httpbin.org/post',data,function(){})<br><br>
 
-becomes ..<br><br>
+替换为：<br><br>
 
-$.post('<b>http://cors.io/?</b>https://httpbin.org/post',data,function(){})<br><br>
+$.post('<b>https://i-cors.herokuapp.com/?</b>https://httpbin.org/post',data,function(){})<br><br>
 
-send hatemail to <a href="https://twitter.com/deanpierce">@deanpierce</a><br><br>
-Annoyed by constant downtime? Check out <a href="https://github.com/pierce403/cors.io#Deploying-on-Heroku">[these]</a> instructions to set up your own free cors proxy!<br><br>
-<span class="contributors">contributors: <a href="https://twitter.com/nizarmah_">@nizarmah_</a></span>
 
-<br><br><br>hmm
 </body>
 </html>
-  
+
